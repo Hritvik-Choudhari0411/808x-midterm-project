@@ -47,3 +47,7 @@ cmake --build .
 ## Quad Chart
 
 ![Quad Chart](./etc/quad_chart.png)
+
+## Proposal Video
+
+[![Proposal Video](https://i9.ytimg.com/vi_webp/stZ0M5cbaZc/mq1.webp?sqp=CNyAvKkG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEwgXyhlMA8=&rs=AOn4CLDdHdtkntw7L618R1pgjqB7f9HwSw)](https://www.youtube.com/watch?v=stZ0M5cbaZc&ab_channel=KshitijKarnawat)
