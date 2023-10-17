@@ -8,12 +8,42 @@
 
 Human (N>=1) obstacle detector and tracker (tracker does not need to handle occlusion).  Module must output location info directly usable in a robot's reference frame. Assume the use of only one monocular video camera.
 
+## Dependencies
+
+- OpenCV 4.7.* or higher
+- CMake 3.2 or higher
+- Ubuntu 18.04 or higher
+- GoogleTest (for testing)
+
 ## Installation & Building
+
+### [Intalling OpenCV](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html)
+
+```sh
+# Install minimal prerequisites (Ubuntu 18.04 as reference)
+sudo apt update && sudo apt install -y cmake g++ wget unzip
+
+# Download and unpack sources
+wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.x.zip
+
+unzip opencv.zip
+unzip opencv_contrib.zip
+
+# Create build directory and switch into it
+mkdir -p build && cd build
+
+# Configure
+cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.x/modules ../opencv-4.x
+
+# Build
+cmake --build .
+```
 
 ## UML Diagrams
 
+![UML Diagram](./etc/UML%20DIagrams/Class_UML_Diagram.png)
+
 ## Quad Chart
 
-## Dependencies
-
-OpenCV 4.7.* or higher
+![Quad Chart](./etc/quad_chart.png)
