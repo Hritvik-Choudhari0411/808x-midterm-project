@@ -1,7 +1,7 @@
 /**
  * @file humantracker.hpp
  * @author Kshitij Karnawat (@KshitijKarnawat)
- * @author Hritvik Choudhary (hac@umd.edu)
+ * @author Hritvik Choudhari (hac@umd.edu)
  * @brief HumanTracker class header file.
  * @version 0.1
  * @date 2023-10-23
