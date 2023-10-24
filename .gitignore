@@ -13,3 +13,5 @@ build/*
 .clangd/*
 docs/*
 .cache/*
+todo.md
+cmake-modules/*
