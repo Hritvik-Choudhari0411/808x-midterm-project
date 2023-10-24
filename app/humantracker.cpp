@@ -32,6 +32,7 @@ void acme::HumanTracker::ProcessFrame(cv::Mat &frame){
 
 }
 
-std::vector<cv::Mat> acme::HumanTracker::TrackHuman(cv::Mat &frame){
-
+std::vector<cv::Rect> acme::HumanTracker::TrackHuman(cv::Mat &frame){
+    std::vector<cv::Rect> humans;
+    return humans;
 }
