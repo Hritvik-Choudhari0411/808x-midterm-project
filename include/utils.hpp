@@ -18,39 +18,83 @@
 #include <opencv2/imgproc.hpp>
 
 namespace acme {
+
+    /**
+     * @brief Pose structure to store the pose of the object.
+     * 
+     */
+    struct Pose{
+        float x;
+        float y;
+        float z;
+     };
+
+    /**
+     * @brief Utils class to store the utility functions.
+     * 
+     */
     class Utils{
         public:
        
-       /**
-        * @brief Resize the image.
-        * 
-        */
-         void ResizeImage();
+        /**
+         * @brief Resize the image to the given size.
+         * 
+         * @param image 
+         * @param size 
+         * @return cv::Mat 
+         */
+        cv::Mat ResizeImage(cv::Mat image, cv::Size size);
 
         /**
-         * @brief Transform pose to world coordinates.
+         * @brief Transform the pose from source to target.
          * 
+         * @param pose_src 
+         * @param pose_tgt 
+         * @return Pose 
          */
-            void TransformPose();
+        Pose TransformPose(Pose pose_src, Pose pose_tgt);
 
         /**
-         * @brief Calculate the IoU.
+         * @brief Calculate the IoU between two bounding boxes.
          * 
+         * @param bounding_box1 
+         * @param bounding_box2 
+         * @return float 
          */
-        void CalculateIoU();
+        float CalculateIoU(cv::Rect bounding_box1, cv::Rect bounding_box2);
 
         /**
-         * @brief Get the bounding boxes for a human.
+         * @brief Get the Bounding Box object
          * 
+         * @param image 
+         * @return cv::Rect 
          */
-        void GetBoundingBox();
+        cv::Rect GetBoundingBox();
 
         /**
-         * @brief Draw the bounding boxes on the frame.
+         * @brief Draw the bounding box on the image.
          * 
+         * @param image 
+         * @param bounding_box 
+         * @return cv::Mat 
          */
-        void DrawBoundingBox();
+        cv::Mat DrawBoundingBox(cv:: Mat image, cv::Rect bounding_box);
 
+        /**
+         * @brief Get the Bounding Box Center object
+         * 
+         * @param bounding_box 
+         * @return cv::Point 
+         */
+        cv::Point GetBoundingBoxCenter(cv::Rect bounding_box);
+
+        /**
+         * @brief Get the Pose From Pixel object
+         * 
+         * @param bounding_box 
+         * @return Pose 
+         */
+        Pose GetPoseFromPixel(cv::Rect bounding_box);
 
     };
 }
