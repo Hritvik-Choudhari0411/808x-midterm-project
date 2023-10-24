@@ -14,8 +14,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
 
-#include <utils.hpp>
 
-TEST(CalculateIoU, this_should_pass) {
+TEST(dummy_test, this_should_pass) {
   EXPECT_EQ(1, 1);
 }
