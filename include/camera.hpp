@@ -58,16 +58,5 @@ namespace acme {
          */
         void CalibrateCamera();
 
-        /**
-         * @brief Initialize the camera.
-         * 
-         */
-        void InitCamera();
-
-        /**
-         * @brief Kill the camera.
-         * 
-         */
-        void KillCamera();
     };
 }
