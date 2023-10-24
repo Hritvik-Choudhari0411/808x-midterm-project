@@ -1,0 +1,9 @@
+<map id="acme::Camera" name="acme::Camera">
+<area shape="rect" id="node1" title="Class for Camera." alt="" coords="121,425,278,547"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,285,116,363"/>
+<area shape="rect" id="node3" title=" " alt="" coords="176,285,223,363"/>
+<area shape="rect" id="node4" title=" " alt="" coords="247,285,394,363"/>
+<area shape="rect" id="node5" title=" " alt="" coords="248,145,287,223"/>
+<area shape="rect" id="node6" title="STL class." alt="" coords="314,145,437,223"/>
+<area shape="rect" id="node7" title=" " alt="" coords="356,5,395,83"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="app/detector.cpp" name="app/detector.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="295,5,425,32"/>
+<area shape="rect" id="node2" href="$detector_8hpp.html" title="Detector class source file." alt="" coords="309,80,411,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,91,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="325,304,405,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="147,304,301,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="535,304,697,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="447,304,510,331"/>
+<area shape="rect" id="node8" href="$camera_8hpp.html" title="Camera class source file." alt="" coords="311,155,409,181"/>
+<area shape="rect" id="node10" href="$utils_8hpp.html" title="Utility functions header file." alt="" coords="449,229,527,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="267,229,323,256"/>
+</map>
