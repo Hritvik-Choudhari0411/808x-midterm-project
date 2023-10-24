@@ -13,11 +13,10 @@
 #pragma once
 
 #include <iostream>
+#include <memory>
 #include <vector>
 
 #include "detector.hpp"
-#include "camera.hpp"
-#include "utils.hpp"
 
 namespace acme {
     /**
@@ -31,7 +30,7 @@ namespace acme {
          * @brief Construct a new HumanTracker object
          * 
          */
-        HumanTracker();
+        HumanTracker(double confidence_);
 
         /**
          * @brief Destroy the HumanTracker object
@@ -41,23 +40,33 @@ namespace acme {
 
 
         unsigned int human_counter_;
-        Detector detector_;
-        Camera camera_;
+        double confidence_;
+
+        std::unique_ptr<acme::Detector> detector_;
+
+        /**
+         * @brief Initialize the parameters for the tracker.
+         * 
+         * @param confidence 
+         */
+        void InitParams(double confidence);
+
+        /**
+         * @brief Process the frame to detect humans.
+         * 
+         * @param frame 
+         */
+        void ProcessFrame(cv::Mat &frame);
 
         public:
         
         /**
-         * @brief Track humans in a video.
+         * @brief Track humans in a frame.
          * 
+         * @param frame 
+         * @return std::vector<cv::Rect> 
          */
-        void TrackHuman();
-
-        /**
-         * @brief Detect humans in a video.
-         * 
-         */
-        void DetectHuman();
-
+        std::vector<cv::Rect> TrackHuman(cv::Mat &frame);
 
     };
 }
