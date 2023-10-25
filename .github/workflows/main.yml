@@ -17,11 +17,11 @@ name: Run Unit Test and Upload Coverage Report
 on:
   # Triggered whenever push to main 
   push:
-    branches: [ "main" ]
+    branches: [ "main" , "devel"]
 
   # Triggered whenever a pull request is created on main
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" , "devel"]
     types: [opened]
 
   # Allow manual trigger
@@ -43,6 +43,7 @@ jobs:
           sudo apt update
           sudo apt install -y software-properties-common
           sudo apt install -y doxygen lcov gcovr
+          sudo apt-get install -y libopencv-dev
           
       # Build, run unit test, and generate coverage report
       - name: Configure CMake flags and build exectables

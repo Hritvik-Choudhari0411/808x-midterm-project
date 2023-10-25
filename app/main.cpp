@@ -1,10 +1,16 @@
-#include "lib.hpp"
-#include "lib1.hpp"
-#include "lib2.hpp"
+/**
+ * @file main.cpp
+ * @author Kshitij Karnawat (@KshitijKarnawat)
+ * @author Hritvik Chaudhari (hac@umd.edu)
+ * @brief main file for the project
+ * @version 0.1
+ * @date 2023-10-23
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 
-int main() {
-  dummy();
-  my_function1(30);
-  my_function2(30.3);
-  return 0;
-}
+#include <iostream>
+#include <opencv2/opencv.hpp>
+
+int main() { return 0; }

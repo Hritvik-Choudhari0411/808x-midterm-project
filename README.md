@@ -1,12 +1,29 @@
 # 808x-midterm-project
 
 ![CICD Workflow status](https://github.com/KshitijKarnawat/808x-midterm-project/actions/workflows/main.yml/badge.svg)
-[![codecov](https://codecov.io/gh/KshitijKarnawat/808x-midterm-project/branch/main/graph/badge.svg)](https://codecov.io/gh/KshitijKarnawat/808x-midterm-project)
+[![codecov](https://codecov.io/gh/KshitijKarnawat/808x-midterm-project/branch/devel/graph/badge.svg)](https://codecov.io/gh/KshitijKarnawat/808x-midterm-project)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Project Overview
 
-Human (N>=1) obstacle detector and tracker (tracker does not need to handle occlusion).  Module must output location info directly usable in a robot's reference frame. Assume the use of only one monocular video camera.
+In the context of the Collaborative Industrial Robot (CIR), our project focuses on the imperative task of real-
+time human detection and tracking. Our solution entails a specialized human detection and tracking module,
+leveraging advanced computer vision algorithms. It abstracts the intricacies of the underlying algorithms
+and offers three operational modes: training, testing, and real-time execution.
+Throughout the project, we will follow Agile Iterative Processs (AIP) to optimize our software devel-
+opment process. In the initial sprint, we implement backlog requirements, monitor bugs, and introduce
+features, while daily meetings ensure progress and resolve conflicts. Each sprint concludes with an iteration
+review for code and backlog assessment in preparation for the next sprint. This can be integrated with other
+modules like Controls and Motion planning/navigation to develop a fully operational robot.
+
+## Author information
+
+- Kshitij Karnawat (<kshitij@terpmail.umd.edu>)
+- Hritvik Choudhari (<hac@terpmail.umd.edu>)
+
+## License
+
+License under MIT License.
 
 ## Dependencies
 
@@ -14,40 +31,62 @@ Human (N>=1) obstacle detector and tracker (tracker does not need to handle occl
 - CMake 3.2 or higher
 - Ubuntu 18.04 or higher
 - GoogleTest (for testing)
+- Doxygen
+- Graphviz
+- Cpplint
+- CppCheck
 
-## Installation & Building
+## Installation
 
 ### [Intalling OpenCV](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html)
 
 ```sh
-# Install minimal prerequisites (Ubuntu 18.04 as reference)
-sudo apt update && sudo apt install -y cmake g++ wget unzip
-
-# Download and unpack sources
-wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
-wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.x.zip
-
-unzip opencv.zip
-unzip opencv_contrib.zip
-
-# Create build directory and switch into it
-mkdir -p build && cd build
-
-# Configure
-cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.x/modules ../opencv-4.x
-
-# Build
-cmake --build .
+sudo apt-get install libopencv-dev
 ```
 
 ## UML Diagrams
 
-![UML Diagram](./etc/UML%20DIagrams/Class_UML_Diagram.png)
+![UML Diagram](UML_Diagrams/Revised/UML_Class_Diagram.png)
 
 ## Quad Chart
 
 ![Quad Chart](./etc/quad_chart.png)
 
-## Proposal Video
+## [Agile Iterative Process Sheet](https://docs.google.com/spreadsheets/d/1ClVrcb1FtqD7OdxFqPrhnZTfMS6CZsh9HTW7clclphI/edit?usp=sharing)
 
-[![Proposal Video](https://i9.ytimg.com/vi_webp/stZ0M5cbaZc/mq1.webp?sqp=CNyAvKkG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEwgXyhlMA8=&rs=AOn4CLDdHdtkntw7L618R1pgjqB7f9HwSw)](https://www.youtube.com/watch?v=stZ0M5cbaZc&ab_channel=KshitijKarnawat)
+## [Planning Sheet](https://docs.google.com/document/d/1iMmyf-nXXenmKZDXkSh4wu5QEsInimkXTg0Oqb2PvHU/edit?usp=sharing)
+
+## API and other developer documentation
+
+### Run
+
+```sh
+# Running the application
+./build/app/shell-app
+
+# Building doxygen documentation
+cmake --build build/ --target docs
+```
+
+### Test
+
+```sh
+# Running test
+cd build/; ctest; cd -
+
+# Running Code Coverage
+cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
+cmake --build build/ --clean-first --target all test_coverage
+```
+
+### Demo
+
+## Known Issues
+
+## Other development Documets
+
+- [OpenCV Documentation](https://opencv.org/)
+
+## Videos
+- [Proposal](https://www.youtube.com/watch?v=stZ0M5cbaZc)
+- [Phase 1 Update](https://youtu.be/rU7ts5qoDmg)
