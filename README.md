@@ -83,6 +83,10 @@ cmake --build build/ --clean-first --target all test_coverage
 
 ## Known Issues
 
-## [Other development Documets](https://opencv.org/)
+## Other development Documets
 
-## [Proposal Video](https://youtu.be/rU7ts5qoDmg)
+- [OpenCV Documentation](https://opencv.org/)
+
+## Videos
+- [Proposal](https://www.youtube.com/watch?v=stZ0M5cbaZc)
+- [Phase 1 Update](https://youtu.be/rU7ts5qoDmg)
