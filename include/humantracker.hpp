@@ -5,9 +5,9 @@
  * @brief HumanTracker class header file.
  * @version 0.1
  * @date 2023-10-23
- * 
+ *
  * @copyright Copyright (c) 2023
- * 
+ *
  */
 
 #pragma once
@@ -16,57 +16,53 @@
 #include <memory>
 #include <vector>
 
-#include "detector.hpp"
+#include "include/detector.hpp"
 
 namespace acme {
-    /**
-     * @brief Class for Tracking Humans in a video.
-     * 
-     */
-    class HumanTracker{
-        private:
+/**
+ * @brief Class for Tracking Humans in a video.
+ *
+ */
+class HumanTracker {
+ private:
+  /**
+   * @brief Construct a new HumanTracker object
+   *
+   */
+  explicit HumanTracker(double confidence_);
 
-        /**
-         * @brief Construct a new HumanTracker object
-         * 
-         */
-        HumanTracker(double confidence_);
+  /**
+   * @brief Destroy the HumanTracker object
+   *
+   */
+  ~HumanTracker();
 
-        /**
-         * @brief Destroy the HumanTracker object
-         * 
-         */
-        ~HumanTracker();
+  unsigned int human_counter_;
+  double confidence_;
 
+  std::unique_ptr<acme::Detector> detector_;
 
-        unsigned int human_counter_;
-        double confidence_;
+  /**
+   * @brief Initialize the parameters for the tracker.
+   *
+   * @param confidence
+   */
+  void InitParams(double confidence);
 
-        std::unique_ptr<acme::Detector> detector_;
+  /**
+   * @brief Process the frame to detect humans.
+   *
+   * @param frame
+   */
+  void ProcessFrame(cv::Mat frame);
 
-        /**
-         * @brief Initialize the parameters for the tracker.
-         * 
-         * @param confidence 
-         */
-        void InitParams(double confidence);
-
-        /**
-         * @brief Process the frame to detect humans.
-         * 
-         * @param frame 
-         */
-        void ProcessFrame(cv::Mat &frame);
-
-        public:
-        
-        /**
-         * @brief Track humans in a frame.
-         * 
-         * @param frame 
-         * @return std::vector<cv::Rect> 
-         */
-        std::vector<cv::Rect> TrackHuman(cv::Mat &frame);
-
-    };
-}
+ public:
+  /**
+   * @brief Track humans in a frame.
+   *
+   * @param frame
+   * @return std::vector<cv::Rect>
+   */
+  std::vector<cv::Rect> TrackHuman(cv::Mat frame);
+};
+}  // namespace acme

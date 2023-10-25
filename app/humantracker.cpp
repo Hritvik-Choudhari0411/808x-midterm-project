@@ -5,34 +5,25 @@
  * @brief Human Tracker class source file.
  * @version 0.1
  * @date 2023-10-17
- * 
+ *
  * @copyright Copyright (c) 2023
- * 
+ *
  */
 
-
 #include <vector>
+#include "include/humantracker.hpp"
 #include <opencv2/opencv.hpp>
 
-#include "humantracker.hpp"
 
-acme::HumanTracker::HumanTracker(double confidence_){
-    
-}
+acme::HumanTracker::HumanTracker(double confidence_) {}
 
-acme::HumanTracker::~HumanTracker(){
+acme::HumanTracker::~HumanTracker() {}
 
-}
+void acme::HumanTracker::InitParams(double confidence) {}
 
-void acme::HumanTracker::InitParams(double confidence){
+void acme::HumanTracker::ProcessFrame(cv::Mat &frame) {}
 
-}
-
-void acme::HumanTracker::ProcessFrame(cv::Mat &frame){
-
-}
-
-std::vector<cv::Rect> acme::HumanTracker::TrackHuman(cv::Mat &frame){
-    std::vector<cv::Rect> humans;
-    return humans;
+std::vector<cv::Rect> acme::HumanTracker::TrackHuman(cv::Mat &frame) {
+  std::vector<cv::Rect> humans;
+  return humans;
 }
