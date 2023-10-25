@@ -5,11 +5,12 @@
  * @brief Main file for testing. Initializes the test suite.
  * @version 0.1
  * @date 2023-10-24
- * 
+ *
  * @copyright Copyright (c) 2023
- * 
+ *
  */
 #include <gtest/gtest.h>
+
 #include <opencv2/opencv.hpp>
 
 int main(int argc, char** argv) {
