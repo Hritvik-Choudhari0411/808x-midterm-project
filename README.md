@@ -18,8 +18,8 @@ modules like Controls and Motion planning/navigation to develop a fully operatio
 
 ## Author information
 
-- Kshitij Karnawat (<kshitij@terpmail.edu>)
-- Hritvik Choudhari (<hac@terpmail.edu>)
+- Kshitij Karnawat (<kshitij@terpmail.umd.edu>)
+- Hritvik Choudhari (<hac@terpmail.umd.edu>)
 
 ## License
 
