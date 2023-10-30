@@ -10,7 +10,7 @@
  *
  */
 
-#include "include/utils.hpp"
+#include "utils.hpp"
 
 #include "opencv2/core/types.hpp"
 
