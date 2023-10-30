@@ -16,7 +16,7 @@
 #include <memory>
 #include <vector>
 
-#include "include/detector.hpp"
+#include "detector.hpp"
 
 namespace acme {
 /**
