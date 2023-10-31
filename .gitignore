@@ -14,3 +14,4 @@ build/*
 .cache/*
 todo.md
 cmake-modules/*
+data/*
