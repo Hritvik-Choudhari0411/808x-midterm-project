@@ -2,11 +2,20 @@
 add_executable(shell-app
   # list of source cpp files:
   main.cpp
+  camera.cpp
+  detector.cpp
+  humantracker.cpp
+  utils.cpp
   )
 
 # Any include directories needed to build this target.
 # Note: we do not need to specify the include directories for the
 # dependent libraries, they are automatically included.
+include_directories(
+    ${CMAKE_SOURCE_DIR}/include
+    	${OpenCV_INCLUDE_DIRS}
+	${EIGEN3_INCLUDE_DIR}
+)
 target_include_directories(shell-app PUBLIC
   # list inclue directories:
   ${CMAKE_SOURCE_DIR}/include

@@ -12,57 +12,62 @@
 
 #pragma once
 
-#include <iostream>
-#include <memory>
 #include <vector>
+#include <memory>
+#include <iostream>
 
-#include "include/detector.hpp"
+#include <opencv2/tracking.hpp>
+#include <opencv2/core/ocl.hpp>
+
+#include "detector.hpp"
 
 namespace acme {
+
 /**
- * @brief Class for Tracking Humans in a video.
- *
+ * @brief Class for tracking humans in video frames.
  */
 class HumanTracker {
- private:
-  /**
-   * @brief Construct a new HumanTracker object
-   *
-   */
-  explicit HumanTracker(double confidence_);
+ public:
+    /**
+     * @brief Constructor for the Human Tracker class.
+     * 
+     * @param conf The confidence threshold for filtering out detections.
+     */
+  explicit HumanTracker(double conf);
 
   /**
-   * @brief Destroy the HumanTracker object
-   *
+   * @brief Destructor for the Human Tracker class.
    */
   ~HumanTracker();
 
-  unsigned int human_counter_;
-  double confidence_;
+  /**
+     * @brief Track objects (humans) present in a video frame.
+     * 
+     * @param frame The input video frame.
+     * @return A vector of bounding boxes (Rect) representing the tracked objects.
+     */
+  std::vector<cv::Rect> Trackobj(const cv::Mat &frame);
 
-  std::unique_ptr<acme::Detector> detector_;
+ private:
+  /**
+     * @brief Initializes default parameters.
+     * 
+     * Sets the confidence threshold to filter out detections.
+     * 
+     * @param conf The confidence threshold.
+     */
+  void InitParam(double conf);
 
   /**
-   * @brief Initialize the parameters for the tracker.
-   *
-   * @param confidence
-   */
-  void InitParams(double confidence);
+     * @brief Filters out detections using a confidence threshold.
+     * 
+     * @param detections Unfiltered detections from the Detector.
+     */
+  void ProcessNoise(const std::vector<acme::Detections>& detections);
 
-  /**
-   * @brief Process the frame to detect humans.
-   *
-   * @param frame
-   */
-  void ProcessFrame(cv::Mat frame);
-
- public:
-  /**
-   * @brief Track humans in a frame.
-   *
-   * @param frame
-   * @return std::vector<cv::Rect>
-   */
-  std::vector<cv::Rect> TrackHuman(cv::Mat frame);
+ private:
+  double conf_thresh_;   // Confidence threshold for detection filtering
+  std::vector<cv::Rect> objects_;   // Bounding boxes of detected objects
+  std::unique_ptr<acme::Detector> detector_;   // Pointer to a Detector object for object detection
 };
 }  // namespace acme
