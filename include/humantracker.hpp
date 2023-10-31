@@ -63,7 +63,7 @@ class HumanTracker {
      * 
      * @param detections Unfiltered detections from the Detector.
      */
-  void ProcessNoise(const std::vector<acme::Detection>& detections);
+  void ProcessNoise(const std::vector<acme::Detections>& detections);
 
  private:
   double conf_thresh_;   // Confidence threshold for detection filtering
