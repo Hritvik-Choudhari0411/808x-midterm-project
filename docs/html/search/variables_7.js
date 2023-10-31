@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['swap_5frb_5f_123',['swap_rb_',['../classacme_1_1Detector.html#a39a6ed8b048b0975514d4a8f14efaac7',1,'acme::Detector']]]
+  ['layer_5foutputs_192',['layer_outputs',['../classacme_1_1Detector.html#a26d36683cf9f63b1fab1a3cf0a2b4948',1,'acme::Detector']]]
 ];

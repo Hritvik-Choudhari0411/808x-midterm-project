@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readframe_39',['ReadFrame',['../classacme_1_1Camera.html#afd88b7a2d7b8dc9502028aa2f8c5a14d',1,'acme::Camera']]],
-  ['resizeimage_40',['ResizeImage',['../classacme_1_1Utils.html#a8f6f113e57d871c503934247ba4a248b',1,'acme::Utils']]]
+  ['objects_5f_73',['objects_',['../classacme_1_1HumanTracker.html#a5ac9611f326a21dd05a2b22111fad046',1,'acme::HumanTracker']]],
+  ['objects_5fin_5fframe_5f_74',['objects_in_frame_',['../classacme_1_1Camera.html#a2f8e961f8a5bc9e65e7b6604fbc2a698',1,'acme::Camera']]]
 ];

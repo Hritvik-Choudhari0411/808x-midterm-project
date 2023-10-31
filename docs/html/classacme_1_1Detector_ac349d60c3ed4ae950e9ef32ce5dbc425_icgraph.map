@@ -1,0 +1,4 @@
+<map id="acme::Detector::WarmUp" name="acme::Detector::WarmUp">
+<area shape="rect" id="node1" title="Run the model network once when initializing the Detector class." alt="" coords="240,5,427,32"/>
+<area shape="rect" id="node2" href="$classacme_1_1Detector.html#abfbfa157cf25ea84dda611748bbbaac6" title="Constructor for the Detector class." alt="" coords="5,5,192,32"/>
+</map>

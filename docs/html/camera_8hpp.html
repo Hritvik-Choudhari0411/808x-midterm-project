@@ -67,7 +67,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">camera.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -75,23 +76,30 @@ $(function() {
 
 <p>Camera class source file.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;array&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;opencv2/opencv.hpp&gt;</code><br />
-<code>#include &quot;<a class="el" href="utils_8hpp_source.html">utils.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="humantracker_8hpp_source.html">humantracker.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for camera.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="camera_8hpp__incl.png" border="0" usemap="#include_2camera_8hpp" alt=""/></div>
 <map name="include_2camera_8hpp" id="include_2camera_8hpp">
-<area shape="rect" title="Camera class source file." alt="" coords="74,5,225,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,61,107"/>
-<area shape="rect" title=" " alt="" coords="13,155,93,181"/>
-<area shape="rect" title=" " alt="" coords="118,155,181,181"/>
-<area shape="rect" title=" " alt="" coords="392,155,547,181"/>
-<area shape="rect" href="utils_8hpp.html" title="Utility functions header file." alt="" coords="187,80,266,107"/>
-<area shape="rect" title=" " alt="" coords="205,155,368,181"/>
+<area shape="rect" title="Camera class source file." alt="" coords="485,5,635,32"/>
+<area shape="rect" title=" " alt="" coords="23,229,81,256"/>
+<area shape="rect" title=" " alt="" coords="814,304,877,331"/>
+<area shape="rect" title=" " alt="" coords="731,229,808,256"/>
+<area shape="rect" title=" " alt="" coords="41,304,196,331"/>
+<area shape="rect" href="humantracker_8hpp.html" title="HumanTracker class header file." alt="" coords="659,80,797,107"/>
+<area shape="rect" title=" " alt="" coords="709,304,789,331"/>
+<area shape="rect" title=" " alt="" coords="883,155,1045,181"/>
+<area shape="rect" title=" " alt="" coords="648,155,808,181"/>
+<area shape="rect" href="detector_8hpp.html" title="Detector class source file." alt="" coords="407,155,510,181"/>
+<area shape="rect" title=" " alt="" coords="157,229,318,256"/>
+<area shape="rect" title=" " alt="" coords="343,229,553,256"/>
+<area shape="rect" href="utils_8hpp.html" title="Utility functions header file." alt="" coords="577,229,655,256"/>
+<area shape="rect" title=" " alt="" coords="523,304,685,331"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -99,12 +107,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="camera_8hpp__dep__incl.png" border="0" usemap="#include_2camera_8hppdep" alt=""/></div>
 <map name="include_2camera_8hppdep" id="include_2camera_8hppdep">
-<area shape="rect" title="Camera class source file." alt="" coords="76,5,227,32"/>
+<area shape="rect" title="Camera class source file." alt="" coords="64,5,215,32"/>
 <area shape="rect" href="camera_8cpp.html" title=" " alt="" coords="5,80,132,107"/>
-<area shape="rect" href="detector_8hpp.html" title="Detector class source file." alt="" coords="157,80,311,107"/>
-<area shape="rect" href="detector_8cpp.html" title=" " alt="" coords="77,155,207,181"/>
-<area shape="rect" href="humantracker_8hpp.html" title="HumanTracker class header file." alt="" coords="232,155,423,181"/>
-<area shape="rect" href="humantracker_8cpp.html" title=" " alt="" coords="244,229,411,256"/>
+<area shape="rect" href="main_8cpp.html" title="main file for the project" alt="" coords="156,80,267,107"/>
 </map>
 </div>
 </div>
@@ -113,13 +118,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacme_1_1Camera.html">acme::Camera</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for <a class="el" href="classacme_1_1Camera.html" title="Class for Camera.">Camera</a>.  <a href="classacme_1_1Camera.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acme Robotics Human Detection and Tracking Module.  <a href="classacme_1_1Camera.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceacme"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceacme.html">acme</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ad441be01fbc84212681432265816456d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceacme.html#ad441be01fbc84212681432265816456d">acme::Mode</a> { <a class="el" href="namespaceacme.html#ad441be01fbc84212681432265816456da1eda289ffe8b70e439883083cd65dc4f">acme::Training</a>, 
+<a class="el" href="namespaceacme.html#ad441be01fbc84212681432265816456dad3b797679513bc5444673fd0d053e0ad">acme::Testing</a>, 
+<a class="el" href="namespaceacme.html#ad441be01fbc84212681432265816456da819e20050f3b69f5d84a4fa8c7dff6cf">acme::RealTimeImp</a> = 0
+ }</td></tr>
+<tr class="memdesc:ad441be01fbc84212681432265816456d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the different modes in which the program can run.  <a href="namespaceacme.html#ad441be01fbc84212681432265816456d">More...</a><br /></td></tr>
+<tr class="separator:ad441be01fbc84212681432265816456d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Camera class source file. </p>

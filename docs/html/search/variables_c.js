@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_128',['z',['../structacme_1_1Pose.html#a01043b864fab47427a1e1554fb51777f',1,'acme::Pose']]]
+  ['robot_5fpose_5f_203',['robot_pose_',['../classacme_1_1Camera.html#aa290be4b297a216001efe351f9680d58',1,'acme::Camera']]]
 ];

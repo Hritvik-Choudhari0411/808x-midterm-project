@@ -1,0 +1,4 @@
+<map id="acme::Utils::DrawBoundingBox" name="acme::Utils::DrawBoundingBox">
+<area shape="rect" id="node1" title="Draw the bounding box on the image." alt="" coords="252,13,476,39"/>
+<area shape="rect" id="node2" href="$classacme_1_1Camera.html#a757aa547b5cc271d4dbb5290f61cf309" title="Converts bounding boxes from the image plane to the robot&#39;s reference frame." alt="" coords="5,5,204,47"/>
+</map>

@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['setbackend_95',['SetBackend',['../classacme_1_1Detector.html#a8dfc8b31e915b0c882d6505aeb63462d',1,'acme::Detector']]],
-  ['setclasses_96',['SetClasses',['../classacme_1_1Detector.html#a59856776982b011a6857ba5f5098a91e',1,'acme::Detector']]],
-  ['setinputheight_97',['SetInputHeight',['../classacme_1_1Detector.html#ab162b377c55332d3da5ddeb483d05ba3',1,'acme::Detector']]],
-  ['setinputwidth_98',['SetInputWidth',['../classacme_1_1Detector.html#a7eb8d22b4231882d1214f3f38f62a764',1,'acme::Detector']]],
-  ['setnmsthreshold_99',['SetNMSThreshold',['../classacme_1_1Detector.html#a946e7d09c49b9319cc6f3b742e028e58',1,'acme::Detector']]],
-  ['setnumchannels_100',['SetNumChannels',['../classacme_1_1Detector.html#aa227475c389f8a561c99f09002fc1f1d',1,'acme::Detector']]],
-  ['setswaprb_101',['SetSwapRB',['../classacme_1_1Detector.html#a71ccddacf8b0b0b1c98e246e6127cba0',1,'acme::Detector']]],
-  ['settarget_102',['SetTarget',['../classacme_1_1Detector.html#ac9bc132a07c8986dcc351ea637cdcc80',1,'acme::Detector']]]
+  ['resizeimage_158',['ResizeImage',['../classacme_1_1Utils.html#a8f6f113e57d871c503934247ba4a248b',1,'acme::Utils']]],
+  ['run_159',['Run',['../classacme_1_1Camera.html#a5a1b02e684fe0af32a33911f131fff52',1,'acme::Camera']]],
+  ['runlive_160',['RunLive',['../classacme_1_1Camera.html#a487ab48aefe21c68c18ed3db1dfa284d',1,'acme::Camera']]]
 ];

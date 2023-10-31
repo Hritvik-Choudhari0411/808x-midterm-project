@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_58',['y',['../structacme_1_1Pose.html#a675f400572fa403a2a44058463f34a18',1,'acme::Pose']]]
+  ['warmup_98',['WarmUp',['../classacme_1_1Detector.html#ac349d60c3ed4ae950e9ef32ce5dbc425',1,'acme::Detector']]]
 ];

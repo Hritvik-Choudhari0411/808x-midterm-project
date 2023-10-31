@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main_32',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp_33',['main.cpp',['../main_8cpp.html',1,'']]]
+  ['layer_5foutputs_63',['layer_outputs',['../classacme_1_1Detector.html#a26d36683cf9f63b1fab1a3cf0a2b4948',1,'acme::Detector']]]
 ];

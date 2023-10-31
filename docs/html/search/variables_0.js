@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['backend_5f_108',['backend_',['../classacme_1_1Detector.html#aae1344449471f3f3db60faa2d9b58f37',1,'acme::Detector']]],
-  ['bounding_5fboxes_5f_109',['bounding_boxes_',['../classacme_1_1Detector.html#af36cb2961f91ae4a721c09d47776b756',1,'acme::Detector']]]
+  ['all_5fclasses_5f_169',['all_classes_',['../classacme_1_1Detector.html#ae6d051030577f156fbc353bb9ef22726',1,'acme::Detector']]],
+  ['avg_5fobj_5fh_5f_170',['avg_obj_h_',['../classacme_1_1Camera.html#a5638da5ad58e31c3e2684fe621109a10',1,'acme::Camera']]]
 ];

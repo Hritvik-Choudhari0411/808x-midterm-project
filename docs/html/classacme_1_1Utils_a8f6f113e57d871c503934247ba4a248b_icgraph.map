@@ -1,0 +1,5 @@
+<map id="acme::Utils::ResizeImage" name="acme::Utils::ResizeImage">
+<area shape="rect" id="node1" title="Resize the image to the given size." alt="" coords="279,31,467,57"/>
+<area shape="rect" id="node2" href="$classacme_1_1Camera.html#ae0295b43e985ef1afb839c8d112a394d" title="When the mode is Testing, the Run method will call GetTestDataset." alt="" coords="5,5,231,32"/>
+<area shape="rect" id="node3" href="$classacme_1_1Camera.html#a487ab48aefe21c68c18ed3db1dfa284d" title="When mode is RealTimeImp, Run Method will call RunLive." alt="" coords="29,56,207,83"/>
+</map>
