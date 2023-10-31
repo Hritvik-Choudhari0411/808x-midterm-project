@@ -12,7 +12,7 @@
 
 #include "utils.hpp"
 
-#include "opencv2/core/types.hpp"
+#include <opencv2/core/types.hpp>
 
 cv::Mat acme::Utils::ResizeImage(cv::Mat image, cv::Size size) { return image; }
 

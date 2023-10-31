@@ -11,7 +11,8 @@
  */
 
 #include <iostream>
-#include <camera.hpp>
+
+#include "camera.hpp"
 
 int main() {
     /// define on which mode the module has to operate

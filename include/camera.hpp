@@ -14,8 +14,10 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <opencv2/opencv.hpp>
 
-#include <humantracker.hpp>
+
+#include "humantracker.hpp"
 
 namespace acme {
      /**

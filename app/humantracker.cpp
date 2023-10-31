@@ -46,7 +46,7 @@ std::vector<cv::Rect> acme::HumanTracker::Trackobj(const cv::Mat &frame) {
     objects_.clear();
 
     // Obtain a vector of Detection objects by running the Detector on the frame
-    std::vector<acme::Detections> output = detector_->Detections(frame);
+    std::vector<acme::Detections> output = detector_->Detect(frame);
 
     // Filter out the detections to retain those with confidence above the threshold
     ProcessNoise(output);
