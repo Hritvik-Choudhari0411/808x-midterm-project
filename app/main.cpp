@@ -11,8 +11,10 @@
  */
 
 #include <iostream>
+#include <opencv2/opencv.hpp>
 
-#include "camera.hpp"
+#include "../include/camera.hpp"
+
 
 int main() {
     /// define on which mode the module has to operate

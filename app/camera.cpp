@@ -11,6 +11,7 @@
  */
 
 #include <eigen3/Eigen/Dense>
+#include <opencv2/opencv.hpp>
 
 #include "camera.hpp"
 #include "utils.hpp"
@@ -23,7 +24,7 @@ acme::Camera::Camera(const int cam_id, double calibration_factor) {
 }
 
 acme::Camera::~Camera() {}
-    // Destructor for the Camera class.
+
 void acme::Camera::Run(const Mode mode) {
     // Based on the selected mode, execute a specific module.
     switch ( static_cast<int>(mode) ) {
