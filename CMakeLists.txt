@@ -4,17 +4,21 @@ project(ACME_Vision)
 #
 # OpenCV Setup
 #
-find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
-# target_link_libraries( ${OpenCV_LIBS} )
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake-modules)
+
+find_package(
+  OpenCV REQUIRED 
+)
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 #
 # GoogleTest Setup
 # ref: https://google.github.io/googletest/quickstart-cmake.html
 #
 
-# GoogleTest requires at least C++14
-set(CMAKE_CXX_STANDARD 14)
+# GoogleTest requires at least C++17
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # declares a dependency on GoogleTest which is downloaded from GitHub
