@@ -151,7 +151,7 @@ class Detector {
        * @param confidence_threshold The confidence threshold for detection.
        * @param classes The classes to detect.
        */
-      void InitModel(double confidence_threshold_, const std::vector<std::string> classes_);
+      void InitModel(double confidence_threshold_, std::vector<std::string> classes_);
 
       /**
        * @brief Process the output of one forward pass by the model network.
@@ -169,7 +169,7 @@ class Detector {
     double input_width_;               // Input width for the model network
     double input_height_;              // Input height for the model network
     cv::Size size_factor;                    // Size of the input image
-    double scale_factor;                     // Scale factor for the model network
+    double scale_factor_;                     // Scale factor for the model network
     cv::Scalar mean_factor;                  // Mean value to subtract
     bool swap_factor;                        // Swap Red and Blue channels
     bool crop_factor;                        // Crop the image

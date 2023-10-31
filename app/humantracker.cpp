@@ -17,7 +17,7 @@
 
 acme::HumanTracker::HumanTracker(double confidence) {
     // Constructor to initialize a HumanTracker object with default parameters
-    InitParams(confidence);
+    InitParam(confidence);
 }
 
 acme::HumanTracker::~HumanTracker() {}
@@ -54,10 +54,10 @@ std::vector<cv::Rect> acme::HumanTracker::Trackobj(const cv::Mat &frame) {
     return objects_;
 }
 
-void acme::HumanTracker::ProcessNoise(const std::vector<acme::Detection>& detections) {
+void acme::HumanTracker::ProcessNoise(const std::vector<acme::Detections>& detections) {
     // Filter and process the detections based on confidence threshold
     for ( acme::Detections detection : detections ) {
-        if (detection.conf >= conf_thresh_) {
+        if (detection.confidence >= conf_thresh_) {
             // Store the detection only if the detected confidence is above the threshold
             objects_.push_back(detection.bounding_box);
         }

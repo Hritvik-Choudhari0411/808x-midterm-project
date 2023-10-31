@@ -30,7 +30,7 @@ std::vector<acme::Detections> acme::Detector::Detect(const cv::Mat& frame) {
     cv::Mat blob;
     if ( !frame.empty() ) {
         // Create a blob from the input frame to feed into the model
-        blob = cv::dnn::blobFromImage(frame, scale_factor, size_factor, mean_factor, swap_factor, crop_factor);
+        blob = cv::dnn::blobFromImage(frame, scale_factor_, size_factor, mean_factor, swap_factor, crop_factor);
 
         // Set the input for the model
         model.setInput(blob);
@@ -41,7 +41,7 @@ std::vector<acme::Detections> acme::Detector::Detect(const cv::Mat& frame) {
         cv::Size image_size = frame.size();
 
         // Process the model's outputs to extract detections
-        detections = ProcessNet(image_size);
+        detections = ProcessModel(image_size);
     }
     return detections;
 }
@@ -63,7 +63,7 @@ void acme::Detector::FixInputHeight(const int input_height) {
 }
 
 void acme::Detector::FixScaleFactor(const double scale_factor) {
-    scale_factor = scale_factor;
+    scale_factor_ = scale_factor;
 }
 
 void acme::Detector::FixSwapRB(const bool swap_rb) {
@@ -90,7 +90,7 @@ void acme::Detector::FixNumChannels(const int num_channels) {
     num_channels_ = num_channels;
 }
 
-void acme::Detector::InitModel(double confidence_threshold_, const std::vector<std::string> &classes_) {
+void acme::Detector::InitModel(double confidence_threshold_, std::vector<std::string> classes_) {
     // Setting default values for model variables
     confidence_threshold_ = confidence_threshold_;
 
@@ -104,7 +104,7 @@ void acme::Detector::InitModel(double confidence_threshold_, const std::vector<s
 
     size_factor = cv::Size(input_width_, input_height_);
 
-    scale_factor = 0.00392157;
+    scale_factor_ = 0.00392157;
 
     mean_factor = cv::Scalar();
 
@@ -160,7 +160,7 @@ void acme::Detector::WarmUp() {
     Detect(temp);
 }
 
-std::vector<acme::Detection> acme::Detector::ProcessModel(const cv::Size &size) {
+std::vector<acme::Detections> acme::Detector::ProcessModel(const cv::Size &size) {
      // Create vectors to store class names, confidences, bounding boxes, and indices
     std::vector<acme::Detections> detections;
     std::vector<std::string> class_names;

@@ -13,8 +13,9 @@
 #include <eigen3/Eigen/Dense>
 
 #include "camera.hpp"
+#include "utils.hpp"
 
-
+acme::Utils utils;
 
 acme::Camera::Camera(const int cam_id, double calibration_factor) {
     // Constructor for the Camera class, initializes default parameters.
@@ -125,6 +126,8 @@ void acme::Camera::GetTrainDataset() {
 
 
 void acme::Camera::GetTestDataset() {
+
+    // acme::Utils utils;
     // Load images for testing, ground truth, and evaluate object detection.
     cap_.release();
     cv::Mat img_1 = cv::imread("../data/test/1.png");
@@ -155,12 +158,12 @@ void acme::Camera::GetTestDataset() {
     // For each image, perform object tracking and evaluate with ground truth.
     std::vector <cv::Mat> image_list = {img_1, img_2, img_3, img_4, img_5};
     for (int i = 0; i < static_cast<int>(image_list.size()); i++) {
-        processing_frame_ = acme::Utils::ResizeImage(image_list[i], processing_size_);
+        processing_frame_ = utils.ResizeImage(image_list[i], processing_size_);
 
         /// get bboxes of objects tracked by HumanTracker class in frame
         auto bound_box = human_tracker_->Trackobj(processing_frame_);
         for ( int j = 0; j < static_cast<int>(gt_list[i].size()); j++ ) {
-        double iou = acme::Utils::CalculateIoU(gt_list[i][j], bound_box[j]);
+        double iou = utils.CalculateIoU(gt_list[i][j], bound_box[j]);
         std::cout << " IoU score:" << iou << std::endl;
         /// Uncomment this block when using Testing mode
         /*
@@ -225,7 +228,7 @@ void acme::Camera::RunLive() {
             }
 
             /// resize src frame according to processing size
-            processing_frame_ = acme::Utils::ResizeImage(src_frame, processing_frame_);
+            processing_frame_ = utils.ResizeImage(src_frame, processing_size_);
 
             /// get bboxes of objects tracked by HumanTracker class in frame
             obj_tracks = human_tracker_->Trackobj(processing_frame_);
@@ -237,7 +240,7 @@ void acme::Camera::RunLive() {
             ToRobotRefFrame(obj_tracks);
 
             /// resize process frame back to src frame size
-            processing_frame_ = acme::Utils::ResizeImage(processing_frame_, src_size);
+            processing_frame_ = utils.ResizeImage(processing_frame_, src_size);
 
             if ( display_ ) {
                 /// if show window is true, display the current video frame
@@ -390,7 +393,7 @@ void acme::Camera::ToRobotRefFrame(const std::vector<cv::Rect> &tracks) {
             bound_box_id++;
             double factor = avg_obj_h_ / box.height;
             /// convert from img plane to Pose(x, y, z) using calib_factor
-            obj_pose = acme::Utils::GetPoseFromPixel(box, calib_factor_);
+            obj_pose = utils.GetPoseFromPixel(box);
             obj_pose.y = obj_pose.y * factor;
             obj_pose.z = obj_pose.z * factor;
 
@@ -412,7 +415,7 @@ void acme::Camera::ToRobotRefFrame(const std::vector<cv::Rect> &tracks) {
                             std::to_string(static_cast<int>(obj_in_robot[2]))
                                 + ")";
 
-            processing_frame_ = acme::Utils::DrawBoundingBox(processing_frame_, box, label);
+            processing_frame_ = utils.DrawBoundingBox(processing_frame_, box);
         }
     }
 }
