@@ -95,19 +95,42 @@ cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
 cmake --build build/ --clean-first --target all test_coverage
 ```
 
+## Results
+
+### Human Detection and Tracking
+
+![Multiple Detections](./etc/result1.png)
+
+### Overlapping Detections
+
+![Overlapping Detections](./etc/result2.png)
+
+### Occluded Detections
+
+![Occluded Detections](./etc/result3.png)
+
 ## Known Issues
 
 - Gtk-Message: 05:12:10.167: Failed to load module "canberra-gtk-module"
-- For CodeCov to get 100% coverage, we need to atleast one successful detection as seen below. Getting this on the CodeCov badge is not possible as the server does not detect from camera.
-![LCOV](./etc/lcov.png)
+<!-- - For CodeCov to get 100% coverage, we need to atleast one successful detection as seen below. Getting this on the CodeCov badge is not possible as the server does not detect from camera.
+![LCOV](./etc/lcov.png) -->
 
 
 ## Other development Documets
 
 - [OpenCV Documentation](https://opencv.org/)
+- [Google Test Suite - 1](https://chromium.googlesource.com/external/github.com/google/googletest/+/refs/heads/v1.8.x/README.md)
+- [Google Test Suite - 2](http://google.github.io/googletest/)
 
 ## Videos
 
 - [Proposal](https://www.youtube.com/watch?v=stZ0M5cbaZc)
 - [Phase 1 Update](https://youtu.be/rU7ts5qoDmg)
 - [Phase 2 Update](https://drive.google.com/drive/folders/117Q6IaYHH1USH-lrPJKtHf2k1KUElCaI?usp=sharing)
+
+## References
+
+- [OpenCV Documentation](https://docs.opencv.org/master/)
+- [OpenCV Tutorials](https://docs.opencv.org/master/d9/df8/tutorial_root.html)
+- [YoloV7](https://arxiv.org/abs/2207.02696)
+- [YoloV7 Implementation in Python](https://github.com/ultralytics/YOLOv5)
