@@ -2,10 +2,11 @@
 add_executable(tracker
   # list of source cpp files:
   main.cpp
-  detector.cpp
-  humantracker.cpp
-  utils.cpp
-  camera.cpp
+  # detector.cpp
+  # humantracker.cpp
+  # utils.cpp
+  # camera.cpp
+  tracker.cpp
 )
 
 # Any include directories needed to build this target.

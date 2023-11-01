@@ -10,23 +10,39 @@
  *
  */
 
-#include <iostream>
+#include <fstream>
 #include <opencv2/opencv.hpp>
 
-#include "../include/camera.hpp"
-
+#include "../include/tracker.hpp"
 
 int main() {
-    /// define on which mode the module has to operate
-    // acme::Mode mode = acme::Mode::Testing;
+  acme::Tracker tracker;
+  
+  std::vector<std::string> class_list;
+  class_list.push_back("person");
 
-    /// initialize Camera class object with camera id and calib factor
-    acme::Camera ACME_robot(0, 0.5);
+  cv::VideoCapture cap(0);
+  cv::Mat frame;
 
-    /// call Run method with the selected mode of operation
-    ACME_robot.RunLive();
+  while (true) {
+    cap.read(frame);
 
-    /// print a success message if module exited without any error
-    std::cout << "Successfully Created Acme Human Tracker robot" << std::endl;
-    return 0;
+    cv::dnn::Net model;
+    model = cv::dnn::readNet("../data/yolov5s.onnx");
+
+    std::vector<cv::Mat> detections;
+    detections = tracker.DetectNN(frame, model);
+
+    cv::Mat img =
+        tracker.DrawBoxes(frame.clone(), detections, class_list);
+
+    cv::imshow("Output", img);
+    char key = cv::waitKey(1);
+    if( key == 27 ) 
+      break;
+  }
+
+  cap.release();
+  cv::destroyAllWindows();
+  return 0;
 }
