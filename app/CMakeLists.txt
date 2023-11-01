@@ -2,10 +2,6 @@
 add_executable(tracker
   # list of source cpp files:
   main.cpp
-  detector.cpp
-  humantracker.cpp
-  utils.cpp
-  camera.cpp
 )
 
 # Any include directories needed to build this target.
@@ -18,4 +14,14 @@ include_directories(tracker
   ${OpenCV_INCLUDE_DIRS}
 )
 
-target_link_libraries(tracker ${OpenCV_LIBS})
+
+
+target_include_directories(tracker PUBLIC
+  # list inclue directories:
+  ${CMAKE_SOURCE_DIR}/include
+)
+
+target_link_libraries(tracker 
+  ${OpenCV_LIBS}
+  trackerLib
+)
