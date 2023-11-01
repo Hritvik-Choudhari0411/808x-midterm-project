@@ -109,6 +109,7 @@ endif()
 #
 add_subdirectory(app)
 add_subdirectory(test)
+add_subdirectory(include)
 
 # create a target to build documentation
 doxygen_add_docs(docs           # target name
@@ -124,24 +125,42 @@ if(WANT_COVERAGE)
     NAME test_coverage          # target name
     # EXECUTABLE ctest || true    # what to run insdie the build directory?
     #                             #   '|| true' --> continue coverage even if ctest failed
-    EXECUTABLE ctest     # what to run insdie the build directory?
+    EXECUTABLE tracker     # what to run insdie the build directory?
     EXCLUDE
-      "app/main.cpp"     # Unit test does not run app, so don't analyze it
+      # "app/main.cpp"     # Unit test does not run app, so don't analyze it
       "*gtest*"          # Don't analyze googleTest code
       "/usr/include/*"   # Don't analyze system headers
+      "opencv/*"         # Don't analyze OpenCV headers
+      "opencv_contrib/*" # Don't analyze OpenCV headers
+      "*core*"           # Don't analyze OpenCV headers
+      "/usr/local/include/*" # Don't analyze system headers
+      "test/test.cpp"    # App does not run unit test, so don't analyze it
+      "test/main.cpp"    # App does not run unit test, so don't analyze it
     )
 
   # code coverage for the app (shell-app):
   # Use gcovr insetad of lcov if you want to see branch coverage as well
   setup_target_for_coverage_gcovr_html ( # use gcovr to generate coverage report
     NAME app_coverage          # target name
-    EXECUTABLE shell-app       # what to run insdie the build directory?
+    EXECUTABLE tracker       # what to run insdie the build directory?
     EXCLUDE
     "test/test.cpp"    # App does not run unit test, so don't analyze it
     "test/main.cpp"    # App does not run unit test, so don't analyze it
     )
 
 endif()
+
+# if (WANT_COVERAGE)
+#     include(CodeCoverage)
+#     set(LCOV_REMOVE_EXTRA "'*vendor/*'")
+#     setup_target_for_coverage(code_coverage test/tracker-test coverage)
+
+#     SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+#     SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+#     SET(CMAKE_EXE_LINKER_FLAGS "-fprofile-arcs -ftest-coverage")
+# else()
+#     set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -g")
+# endif()
 
 # Sanity check:
 # can also do "cmake -S ./ -B build/ -LAH" to print all variables

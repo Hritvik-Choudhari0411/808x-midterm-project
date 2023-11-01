@@ -1,10 +1,5 @@
 sudo apt install libgtk2.0 pkg-config
 
-### Download the model weights file
-cd data
-wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.weights
-cd ..
-
 ### For opencv
 git clone https://github.com/opencv/opencv.git
 cd opencv 
