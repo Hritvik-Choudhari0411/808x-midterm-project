@@ -45,7 +45,7 @@ sudo chmod +x requirements.sh
 
 ## UML Diagrams
 
-![UML Diagram](UML_Diagrams/Revised/UML_Class_Diagram.png)
+![UML Diagram](UML_Diagrams/Final/UML_Diagram.png)
 
 ## Quad Chart
 
@@ -98,7 +98,9 @@ cmake --build build/ --clean-first --target all test_coverage
 ## Known Issues
 
 - Gtk-Message: 05:12:10.167: Failed to load module "canberra-gtk-module"
-- For CodeCov to get 100% coverage, we need to atleast one successful detection getting this on the CodeCov badge is not possible.
+- For CodeCov to get 100% coverage, we need to atleast one successful detection as seen below. Getting this on the CodeCov badge is not possible as the server does not detect from camera.
+![LCOV](./etc/lcov.png)
+
 
 ## Other development Documets
 
