@@ -16,7 +16,7 @@
 
 int main() {
   acme::Tracker tracker;
-  
+
   std::vector<std::string> class_list;
   class_list.push_back("person");
 
@@ -32,12 +32,11 @@ int main() {
     std::vector<cv::Mat> detections;
     detections = tracker.DetectNN(frame, model);
 
-    cv::Mat img =
-        tracker.DrawBoxes(frame.clone(), detections, class_list);
+    cv::Mat img = tracker.DrawBoxes(frame.clone(), detections, class_list);
 
     cv::imshow("Output", img);
     char key = cv::waitKey(1);
-    if( key == 27 ) {
+    if (key == 27) {
       break;
     }
   }

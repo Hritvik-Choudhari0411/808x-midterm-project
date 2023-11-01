@@ -1,4 +1,0 @@
-<map id="acme::Tracker::DrawBoxes" name="acme::Tracker::DrawBoxes">
-<area shape="rect" id="node1" title="Draw the bounding boxes on the frame." alt="" coords="5,5,199,32"/>
-<area shape="rect" id="node2" href="$classacme_1_1Tracker.html#a221cfff8931197cd9b8d54b03d0ab4a6" title="Display the labels on the frame." alt="" coords="247,5,457,32"/>
-</map>
