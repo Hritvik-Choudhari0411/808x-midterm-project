@@ -1,5 +1,0 @@
-<map id="acme::Detector::Detector" name="acme::Detector::Detector">
-<area shape="rect" id="node1" title="Constructor for the Detector class." alt="" coords="5,31,192,57"/>
-<area shape="rect" id="node2" href="$classacme_1_1Detector.html#ab04739fa16a726007f5636ace9e37c31" title="Initialize default model parameters." alt="" coords="240,5,431,32"/>
-<area shape="rect" id="node3" href="$classacme_1_1Detector.html#ac349d60c3ed4ae950e9ef32ce5dbc425" title="Run the model network once when initializing the Detector class." alt="" coords="242,56,429,83"/>
-</map>

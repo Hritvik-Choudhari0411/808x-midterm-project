@@ -1,5 +1,0 @@
-<map id="acme::Camera::ToRobotRefFrame" name="acme::Camera::ToRobotRefFrame">
-<area shape="rect" id="node1" title="Converts bounding boxes from the image plane to the robot&#39;s reference frame." alt="" coords="5,27,204,69"/>
-<area shape="rect" id="node2" href="$classacme_1_1Utils.html#a35a16950e7e7ceb251e84307ad989ff2" title="Draw the bounding box on the image." alt="" coords="252,5,476,32"/>
-<area shape="rect" id="node3" href="$classacme_1_1Utils.html#a7f88d50ca5c2402d8ab93df1fcdb1312" title="Get the Pose From Pixel object." alt="" coords="269,57,459,98"/>
-</map>

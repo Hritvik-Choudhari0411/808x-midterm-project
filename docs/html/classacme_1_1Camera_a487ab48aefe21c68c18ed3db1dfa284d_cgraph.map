@@ -1,4 +1,0 @@
-<map id="acme::Camera::RunLive" name="acme::Camera::RunLive">
-<area shape="rect" id="node1" title="When mode is RealTimeImp, Run Method will call RunLive." alt="" coords="5,5,183,32"/>
-<area shape="rect" id="node2" href="$classacme_1_1Utils.html#a8f6f113e57d871c503934247ba4a248b" title="Resize the image to the given size." alt="" coords="231,5,419,32"/>
-</map>

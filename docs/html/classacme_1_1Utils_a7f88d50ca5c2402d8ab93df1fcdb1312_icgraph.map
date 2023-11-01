@@ -1,4 +1,0 @@
-<map id="acme::Utils::GetPoseFromPixel" name="acme::Utils::GetPoseFromPixel">
-<area shape="rect" id="node1" title="Get the Pose From Pixel object." alt="" coords="252,5,443,47"/>
-<area shape="rect" id="node2" href="$classacme_1_1Camera.html#a757aa547b5cc271d4dbb5290f61cf309" title="Converts bounding boxes from the image plane to the robot&#39;s reference frame." alt="" coords="5,5,204,47"/>
-</map>

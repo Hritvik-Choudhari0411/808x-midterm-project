@@ -1,4 +1,0 @@
-<map id="acme::Utils::CalculateIoU" name="acme::Utils::CalculateIoU">
-<area shape="rect" id="node1" title="Calculate the IoU between two bounding boxes." alt="" coords="279,5,465,32"/>
-<area shape="rect" id="node2" href="$classacme_1_1Camera.html#ae0295b43e985ef1afb839c8d112a394d" title="When the mode is Testing, the Run method will call GetTestDataset." alt="" coords="5,5,231,32"/>
-</map>

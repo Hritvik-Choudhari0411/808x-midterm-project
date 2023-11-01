@@ -1,5 +1,0 @@
-<map id="acme::Camera::GetTestDataset" name="acme::Camera::GetTestDataset">
-<area shape="rect" id="node1" title="When the mode is Testing, the Run method will call GetTestDataset." alt="" coords="5,31,231,57"/>
-<area shape="rect" id="node2" href="$classacme_1_1Utils.html#a31ef886cf5e2a839da76c0e372be9144" title="Calculate the IoU between two bounding boxes." alt="" coords="279,5,466,32"/>
-<area shape="rect" id="node3" href="$classacme_1_1Utils.html#a8f6f113e57d871c503934247ba4a248b" title="Resize the image to the given size." alt="" coords="279,56,467,83"/>
-</map>
