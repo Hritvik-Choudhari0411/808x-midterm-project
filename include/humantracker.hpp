@@ -58,13 +58,6 @@ class HumanTracker {
      */
   void InitParam(double conf);
 
-  /**
-     * @brief Filters out detections using a confidence threshold.
-     * 
-     * @param detections Unfiltered detections from the Detector.
-     */
-  void ProcessNoise(const std::vector<acme::Detections>& detections);
-
  private:
   double conf_thresh_;   // Confidence threshold for detection filtering
   std::vector<cv::Rect> objects_;   // Bounding boxes of detected objects

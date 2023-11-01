@@ -23,12 +23,23 @@ namespace acme {
  *
  */
 struct Pose {
+  /**
+   * @brief Construct a new Pose object
+   * 
+   */
   Pose(){
     x = 0;
     y = 0;
     z = 0;
   }
 
+  /**
+   * @brief Construct a new Pose object
+   * 
+   * @param x1 
+   * @param y1 
+   * @param z1 
+   */
   Pose(float x1, float y1, float z1) {
     x = x1;
     y = y1;
@@ -55,31 +66,6 @@ class Utils {
    */
   cv::Mat ResizeImage(cv::Mat image, cv::Size size);
 
-  /**
-   * @brief Transform the pose from source to target.
-   *
-   * @param pose_src
-   * @param pose_tgt
-   * @return Pose
-   */
-  Pose TransformPose(Pose pose_src, Pose pose_tgt);
-
-  /**
-   * @brief Calculate the IoU between two bounding boxes.
-   *
-   * @param bounding_box1
-   * @param bounding_box2
-   * @return float
-   */
-  float CalculateIoU(cv::Rect bounding_box1, cv::Rect bounding_box2);
-
-  /**
-   * @brief Get the Bounding Box object
-   *
-   * @param image
-   * @return cv::Rect
-   */
-  cv::Rect GetBoundingBox();
 
   /**
    * @brief Draw the bounding box on the image.
@@ -88,15 +74,7 @@ class Utils {
    * @param bounding_box
    * @return cv::Mat
    */
-  cv::Mat DrawBoundingBox(cv::Mat image, cv::Rect bounding_box);
-
-  /**
-   * @brief Get the Bounding Box Center object
-   *
-   * @param bounding_box
-   * @return cv::Point
-   */
-  cv::Point GetBoundingBoxCenter(cv::Rect bounding_box);
+  cv::Mat DrawBoundingBox(cv::Mat image, const cv::Rect& bounding_box, const std::string& l);
 
   /**
    * @brief Get the Pose From Pixel object

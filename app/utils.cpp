@@ -1,5 +1,5 @@
 /**
- * @file detector.hpp
+ * @file utils.cpp
  * @author Kshitij Karnawat (@KshitijKarnawat)
  * @author Hritvik Choudhari (hac@umd.edu)
  * @brief Utils class source file.
@@ -16,24 +16,56 @@
 
 cv::Mat acme::Utils::ResizeImage(cv::Mat image, cv::Size size) { return image; }
 
-acme::Pose acme::Utils::TransformPose(acme::Pose pose_src,
-                                      acme::Pose pose_tgt) {
-  return pose_src;
-}
+cv::Mat DrawBoundingBox(cv::Mat image, const cv::Rect& bounding_box, const std::string& l){
+  // creating a copy of frame
+  cv::Mat frame = image.clone();
 
-float acme::Utils::CalculateIoU(cv::Rect bounding_box1,
-                                cv::Rect bounding_box2) {
-  return 0.0;
-}
+  // set color for Bbox
+  cv::Scalar color = cv::Scalar(0, 0, 255);
 
-cv::Rect acme::Utils::GetBoundingBox() { return cv::Rect(); }
+  // set color for label x
+  cv::Scalar l_color = cv::Scalar::all(255);
 
-cv::Mat acme::Utils::DrawBoundingBox(cv::Mat image, cv::Rect bounding_box) {
-  return image;
-}
+  // initialize font type
+  int f_face(0);
 
-cv::Point acme::Utils::GetBoundingBoxCenter(cv::Rect bounding_box) {
-  return cv::Point();
+  // initialize font scale
+  double f_scale(1);
+
+  // variable to store label point
+  cv::Point l_pt;
+  // variable to store label top point
+  cv::Point top_pt;
+  // variable to store label bottom point
+  cv::Point bottom_pt;
+
+  // initialize baseline
+  int b_line(0);
+
+  // variable for label size
+  cv::Size l_size;
+
+  // draws rectangle on frame
+  cv::rectangle(frame, bounding_box, color, 2, cv::LINE_AA);
+
+  // get label size
+  l_size = cv::getTextSize(l, f_face, f_scale, 2, &b_line);
+
+  // get top point for label rectangle
+  top_pt = cv::Point(bounding_box.x, bounding_box.y);
+
+  // get bottom point for label rectangle
+  bottom_pt = cv::Point(bounding_box.x + l_size.width, bounding_box.y+l_size.height);
+
+  //  get point for label
+  l_pt = cv::Point(bounding_box.x, bounding_box.y+l_size.height);
+
+  // draw rectangle for label
+  cv::rectangle(frame, top_pt, bottom_pt, color, -1, 16);
+
+  // display text of label
+  cv::putText(frame, l, l_pt, f_face, f_scale, l_color, 2);
+  return frame;
 }
 
 acme::Pose acme::Utils::GetPoseFromPixel(cv::Rect bounding_box) {

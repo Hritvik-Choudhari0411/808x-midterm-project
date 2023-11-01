@@ -24,7 +24,7 @@ int main() {
     acme::Camera ACME_robot(0, 0.5);
 
     /// call Run method with the selected mode of operation
-    ACME_robot.Run(1);
+    ACME_robot.RunLive();
 
     /// print a success message if module exited without any error
     std::cout << "Successfully Created Acme Human Tracker robot" << std::endl;

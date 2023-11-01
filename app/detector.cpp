@@ -11,6 +11,7 @@
  */
 
 #include <detector.hpp>
+#include <iostream>
 
 
 acme::Detector::Detector(double confidence_threshold_, const std::vector<std::string> &classes_) {
@@ -20,76 +21,11 @@ acme::Detector::Detector(double confidence_threshold_, const std::vector<std::st
     // Warm up the model by running it once before performing actual detection
     WarmUp();
 }
+
 acme::Detector::~Detector() {}
-    // Destructor
-std::vector<acme::Detections> acme::Detector::Detect(const cv::Mat& frame) {
-    // Detect objects in the given frame and return a vector of Detections
-    std::vector<acme::Detections> detections = {};
 
-    // Create a Mat to store the input blob
-    cv::Mat blob;
-    if ( !frame.empty() ) {
-        // Create a blob from the input frame to feed into the model
-        blob = cv::dnn::blobFromImage(frame, scale_factor_, size_factor, mean_factor, swap_factor, crop_factor);
 
-        // Set the input for the model
-        model.setInput(blob);
-        model_output.clear();
-
-        // Run a forward pass of the model
-        model.forward(model_output, layer_outputs);
-        cv::Size image_size = frame.size();
-
-        // Process the model's outputs to extract detections
-        detections = ProcessModel(image_size);
-    }
-    return detections;
-}
-
-void acme::Detector::SetClasses(const std::vector<std::string> &classes) {
-    classes_ = classes;
-}
-
-void acme::Detector::FixNmsThresh(const double nms_thresh) {
-    nms_threshold_ = nms_thresh;
-}
-
-void acme::Detector::FixInputWidth(const int input_width) {
-    input_width_ = input_width;
-}
-
-void acme::Detector::FixInputHeight(const int input_height) {
-    input_height_ = input_height;
-}
-
-void acme::Detector::FixScaleFactor(const double scale_factor) {
-    scale_factor_ = scale_factor;
-}
-
-void acme::Detector::FixSwapRB(const bool swap_rb) {
-    swap_factor = swap_rb;
-}
-
-void acme::Detector::FixMean(const cv::Scalar &mean) {
-    mean_factor = mean;
-}
-
-void acme::Detector::CropImage(const bool crop_img) {
-    crop_factor = crop_img;
-}
-
-void acme::Detector::FixBackend(const int backend) {
-    backend_ = backend;
-}
-
-void acme::Detector::FixTarget(const int target) {
-    target_ = target;
-}
-
-void acme::Detector::FixNumChannels(const int num_channels) {
-    num_channels_ = num_channels;
-}
-
+// Model Initialization function
 void acme::Detector::InitModel(double confidence_threshold_, std::vector<std::string> classes_) {
     // Setting default values for model variables
     confidence_threshold_ = confidence_threshold_;
@@ -104,7 +40,7 @@ void acme::Detector::InitModel(double confidence_threshold_, std::vector<std::st
 
     size_factor = cv::Size(input_width_, input_height_);
 
-    scale_factor_ = 0.00392157;
+    scale_factor_ = 1. / 255.;
 
     mean_factor = cv::Scalar();
 
@@ -119,10 +55,22 @@ void acme::Detector::InitModel(double confidence_threshold_, std::vector<std::st
     num_channels_ = 3;
 
     // Set classes default value for the model
-    all_classes_ = {"person" };
-
+    all_classes_ = {"person", "bicycle", "car", "motorbike", "aeroplane",
+        "bus", "train", "truck", "boat", "traffic light", "fire hydrant",
+        "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse",
+        "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack",
+        "umbrella", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard",
+        "sports ball", "kite", "baseball bat", "baseball glove", "skateboard",
+        "surfboard", "tennis racket", "bottle", "wine glass", "cup", "fork",
+        "knife", "spoon", "bowl", "banana", "apple", "sandwich", "orange",
+        "broccoli", "carrot", "hot dog", "pizza", "donut", "cake", "chair",
+        "sofa", "pottedplant", "bed", "diningtable", "toilet", "tvmonitor",
+        "laptop", "mouse", "remote", "keyboard", "cell phone", "microwave",
+        "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase",
+        "scissors", "teddy bear", "hair drier", "toothbrush" };
+    
     // Set weights file path
-    std::string weights_path = "../data/yolov4-tiny.weights";
+    std::string weights_path = "../data/yolov4-tiny.weights.4";
 
     // Set config file path
     std::string config_path = "../data/yolov4-tiny.cfg";
@@ -138,6 +86,33 @@ void acme::Detector::InitModel(double confidence_threshold_, std::vector<std::st
 
     // Get output layer names for the model
     layer_outputs = model.getUnconnectedOutLayersNames();
+}
+
+// Detection function
+std::vector<cv::Mat> acme::Detector::Detect(const cv::Mat& frame) {
+    // Detect objects in the given frame and return a vector of Detections
+    std::vector<acme::Detections> detections = {};
+    std::cout << "Detecting objects in the frame" << std::endl;
+    // Create a Mat to store the input blob
+    cv::Mat blob;
+    if ( !frame.empty() ) {
+        // Create a blob from the input frame to feed into the model
+        cv::dnn::blobFromImage(frame, blob, scale_factor_, size_factor, mean_factor, swap_factor, crop_factor);
+
+        // Set the input for the model
+        model.setInput(blob);
+        // model_output.clear();
+
+        std::vector<cv::Mat> model_output;
+        // Run a forward pass of the model
+        model.forward(model_output, layer_outputs);
+        cv::Size image_size = frame.size();
+
+        // Process the model's outputs to extract detections
+        detections = ProcessModel(image_size);
+    }
+    std::cout << "Detected " << detections.size() << " objects in the frame" << std::endl;
+    return model_output;
 }
 
 void acme::Detector::WarmUp() {

@@ -10,6 +10,8 @@
  *
  */
 
+#include <iostream>
+#include <opencv4/opencv2/core/mat.hpp>
 #include <vector>
 #include "humantracker.hpp"
 #include <opencv2/opencv.hpp>
@@ -21,7 +23,7 @@ acme::HumanTracker::HumanTracker(double confidence) {
 }
 
 acme::HumanTracker::~HumanTracker() {}
-    // Destructor
+
 void acme::HumanTracker::InitParam(double conf) {
     // Initialize parameters used by the HumanTracker class
     // Set the confidence threshold value to filter out detections
@@ -45,21 +47,12 @@ std::vector<cv::Rect> acme::HumanTracker::Trackobj(const cv::Mat &frame) {
     // Clear the vector that stores detections
     objects_.clear();
 
+    std::cout << "Tracking objects in the frame" << std::endl;
     // Obtain a vector of Detection objects by running the Detector on the frame
-    std::vector<acme::Detections> output = detector_->Detect(frame);
+    std::vector<cv::Mat> output = detector_->Detect(frame);
 
     // Filter out the detections to retain those with confidence above the threshold
-    ProcessNoise(output);
+    // ProcessNoise(output);
     // Return the vector of tracked human objects
     return objects_;
-}
-
-void acme::HumanTracker::ProcessNoise(const std::vector<acme::Detections>& detections) {
-    // Filter and process the detections based on confidence threshold
-    for ( acme::Detections detection : detections ) {
-        if (detection.confidence >= conf_thresh_) {
-            // Store the detection only if the detected confidence is above the threshold
-            objects_.push_back(detection.bounding_box);
-        }
-    }
 }
