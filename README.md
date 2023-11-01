@@ -36,12 +36,11 @@ License under MIT License.
 - Cpplint
 - CppCheck
 
-## Installation
-
-### [Intalling OpenCV](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html)
+## Dependencies Installation
 
 ```sh
-sudo apt-get install libopencv-dev
+sudo chmod +x requirements.sh
+./requirements.sh
 ```
 
 ## UML Diagrams
@@ -56,16 +55,33 @@ sudo apt-get install libopencv-dev
 
 ## [Planning Sheet](https://docs.google.com/document/d/1iMmyf-nXXenmKZDXkSh4wu5QEsInimkXTg0Oqb2PvHU/edit?usp=sharing)
 
-## API and other developer documentation
+## Building and Running
+
+### Build
+
+```sh
+# Clone the repository
+git clone
+
+# Create a build directory
+mkdir build && cd build
+cmake ..
+make
+
+# To generate documentation
+cd ..
+cmake --build build/ --target docs
+```
 
 ### Run
 
 ```sh
 # Running the application
-./build/app/shell-app
+cd build/
+./app/shell-app
 
-# Building doxygen documentation
-cmake --build build/ --target docs
+# Press 'esc' to exit the application
+
 ```
 
 ### Test
@@ -79,15 +95,17 @@ cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
 cmake --build build/ --clean-first --target all test_coverage
 ```
 
-### Demo
-
 ## Known Issues
+
+- Gtk-Message: 05:12:10.167: Failed to load module "canberra-gtk-module"
+- For CodeCov to get 100% coverage, we need to atleast one successful detection getting this on the CodeCov badge is not possible.
 
 ## Other development Documets
 
 - [OpenCV Documentation](https://opencv.org/)
 
 ## Videos
+
 - [Proposal](https://www.youtube.com/watch?v=stZ0M5cbaZc)
 - [Phase 1 Update](https://youtu.be/rU7ts5qoDmg)
 - [Phase 2 Update](https://drive.google.com/drive/folders/117Q6IaYHH1USH-lrPJKtHf2k1KUElCaI?usp=sharing)
