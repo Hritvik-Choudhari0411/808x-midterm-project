@@ -14,9 +14,11 @@
 
 #include <algorithm>
 #include <iostream>
-#include <opencv2/opencv.hpp>
 #include <string>
 #include <vector>
+
+#include <opencv2/opencv.hpp>
+
 namespace acme {
 /**
  * @brief Class for tracking humans in a video.

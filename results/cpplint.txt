@@ -1,14 +1,6 @@
-cpplint --filter="-legal/copyright" $( find . -name *.cpp | grep -vE -e "^./build/" )
-Done processing ./app/camera.cpp
-Done processing ./app/detector.cpp
-Done processing ./app/humantracker.cpp
+cpplint --filter="-legal/copyright" $( find ./app -name *.cpp | grep -vE -e "^./build/" ) $( find ./include -name *.hpp | grep -vE -e "^./build/" ) $( find ./include -name *.cpp | grep -vE -e "^./build/" ) $( find ./test -name *.cpp | grep -vE -e "^./build/" )
 Done processing ./app/main.cpp
-Done processing ./app/utils.cpp
+Done processing ./include/tracker.cpp
+Done processing ./include/tracker.hpp
 Done processing ./test/main.cpp
 Done processing ./test/test.cpp
-
-cpplint --filter="-legal/copyright" $( find . -name *.hpp | grep -vE -e "^./build/" )
-Done processing ./include/camera.hpp
-Done processing ./include/detector.hpp
-Done processing ./include/humantracker.hpp
-Done processing ./include/utils.hpp

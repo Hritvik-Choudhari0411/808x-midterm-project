@@ -11,11 +11,11 @@
  */
 
 #include <gtest/gtest.h>
+#include <string>
 
 #include <opencv2/dnn/dnn.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
-#include <string>
 
 #include "../include/tracker.hpp"
 
