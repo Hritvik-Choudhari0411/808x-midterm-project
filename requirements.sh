@@ -1,3 +1,4 @@
+sudo apt install libgtk2.0 pkg-config
 
 ### Download the model weights file
 cd data

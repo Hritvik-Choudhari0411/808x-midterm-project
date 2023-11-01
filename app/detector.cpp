@@ -119,25 +119,13 @@ void acme::Detector::InitModel(double confidence_threshold_, std::vector<std::st
     num_channels_ = 3;
 
     // Set classes default value for the model
-    all_classes_ = {"person", "bicycle", "car", "motorbike", "aeroplane",
-     "bus", "train", "truck", "boat", "traffic light", "fire hydrant",
-      "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse",
-      "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack",
-      "umbrella", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard",
-      "sports ball", "kite", "baseball bat", "baseball glove", "skateboard",
-      "surfboard", "tennis racket", "bottle", "wine glass", "cup", "fork",
-      "knife", "spoon", "bowl", "banana", "apple", "sandwich", "orange",
-      "broccoli", "carrot", "hot dog", "pizza", "donut", "cake", "chair",
-      "sofa", "pottedplant", "bed", "diningtable", "toilet", "tvmonitor",
-      "laptop", "mouse", "remote", "keyboard", "cell phone", "microwave",
-      "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase",
-      "scissors", "teddy bear", "hair drier", "toothbrush" };
+    all_classes_ = {"person" };
 
     // Set weights file path
-    std::string weights_path = "..//data//yolov4-tiny.weights";
+    std::string weights_path = "../data/yolov4-tiny.weights";
 
     // Set config file path
-    std::string config_path = "..//data//yolov4-tiny.cfg";
+    std::string config_path = "../data/yolov4-tiny.cfg";
 
     // Create a model
     model = cv::dnn::readNet(weights_path, config_path);
@@ -183,7 +171,7 @@ std::vector<acme::Detections> acme::Detector::ProcessModel(const cv::Size &size)
 
             double confidence;
 
-            /// perform minMaxLoc to get global min n max in scores
+            // perform minMaxLoc to get global min n max in scores
             cv::minMaxLoc(scores, 0, &confidence, 0, &class_id_point);
             if ( confidence > confidence_threshold_ ) {
                 // Detected class id
@@ -223,7 +211,7 @@ std::vector<acme::Detections> acme::Detector::ProcessModel(const cv::Size &size)
         }
     }
 
-    /// Applying Non Maximum Suppression
+    // Applying Non Maximum Suppression
     cv::dnn::NMSBoxes(bboxes, confidences, confidence_threshold_, nms_threshold_, indices);
 
     for ( int index : indices ) {

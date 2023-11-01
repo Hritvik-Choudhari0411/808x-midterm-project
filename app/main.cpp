@@ -18,13 +18,13 @@
 
 int main() {
     /// define on which mode the module has to operate
-    acme::Mode mode = acme::Mode::Training;
+    // acme::Mode mode = acme::Mode::Testing;
 
     /// initialize Camera class object with camera id and calib factor
     acme::Camera ACME_robot(0, 0.5);
 
     /// call Run method with the selected mode of operation
-    ACME_robot.Run(mode);
+    ACME_robot.Run(1);
 
     /// print a success message if module exited without any error
     std::cout << "Successfully Created Acme Human Tracker robot" << std::endl;

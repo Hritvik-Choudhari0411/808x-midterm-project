@@ -25,9 +25,9 @@ namespace acme {
   *
   */
   enum Mode {
-      Training, ///< Collect Training Data
-      Testing, ///< Run Detector on user-specified test data and generate metrics
-      RealTimeImp = 0 ///< Run the Full Human Detector and Tracker module
+      Training = 1, 
+      Testing = 2, 
+      RealTimeImp = 0 
   };
 
   /**
@@ -64,7 +64,7 @@ namespace acme {
       * 
       * @param mode The mode in which the program should run.
       */
-      void Run(const acme::Mode mode);
+      void Run(int mode);
 
       /**
       * @brief Set the Robot Pose in (x, y, z) coordinates.
