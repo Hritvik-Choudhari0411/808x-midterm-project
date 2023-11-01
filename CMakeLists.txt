@@ -136,6 +136,8 @@ if(WANT_COVERAGE)
       "/usr/local/include/*" # Don't analyze system headers
       "test/test.cpp"    # App does not run unit test, so don't analyze it
       "test/main.cpp"    # App does not run unit test, so don't analyze it
+      "app/*"
+      "include/*"
     )
 
   # code coverage for the app (shell-app):
