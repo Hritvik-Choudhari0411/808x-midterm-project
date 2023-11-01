@@ -78,7 +78,7 @@ cmake --build build/ --target docs
 ```sh
 # Running the application
 cd build/
-./app/shell-app
+./app/tracker
 
 # Press 'esc' to exit the application
 
