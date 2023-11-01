@@ -10,7 +10,6 @@
  *
  */
 
-#include <fstream>
 #include <opencv2/opencv.hpp>
 
 #include "../include/tracker.hpp"
@@ -28,7 +27,7 @@ int main() {
     cap.read(frame);
 
     cv::dnn::Net model;
-    model = cv::dnn::readNet("../data/yolov5s.onnx");
+    model = cv::dnn::readNet("../model/yolov7-tiny.onnx");
 
     std::vector<cv::Mat> detections;
     detections = tracker.DetectNN(frame, model);
@@ -38,8 +37,9 @@ int main() {
 
     cv::imshow("Output", img);
     char key = cv::waitKey(1);
-    if( key == 27 ) 
+    if( key == 27 ) {
       break;
+    }
   }
 
   cap.release();
