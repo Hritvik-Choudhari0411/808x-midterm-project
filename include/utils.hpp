@@ -77,11 +77,21 @@ class Utils {
   cv::Mat DrawBoundingBox(cv::Mat image, const cv::Rect& bounding_box, const std::string& l);
 
   /**
+   * @brief Get the Bounding Box Center object
+   * 
+   * @param bbox 
+   * @return cv::Point 
+   */
+  cv::Point GetBoundingBoxCenter(const cv::Rect &bbox);
+
+
+  /**
    * @brief Get the Pose From Pixel object
    *
    * @param bounding_box
    * @return Pose
    */
-  Pose GetPoseFromPixel(cv::Rect bounding_box);
+  acme::Pose GetPoseFromPixel(cv::Rect bounding_box, double calib_factor);
+
 };
 }  // namespace acme

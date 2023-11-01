@@ -14,7 +14,11 @@
 
 #include <opencv2/core/types.hpp>
 
-cv::Mat acme::Utils::ResizeImage(cv::Mat image, cv::Size size) { return image; }
+cv::Mat acme::Utils::ResizeImage(cv::Mat image, cv::Size size) { 
+    cv::Mat out_img;
+    cv::resize(image, out_img, size);
+    return out_img;
+}
 
 cv::Mat DrawBoundingBox(cv::Mat image, const cv::Rect& bounding_box, const std::string& l){
   // creating a copy of frame
@@ -68,6 +72,20 @@ cv::Mat DrawBoundingBox(cv::Mat image, const cv::Rect& bounding_box, const std::
   return frame;
 }
 
-acme::Pose acme::Utils::GetPoseFromPixel(cv::Rect bounding_box) {
-  return acme::Pose();
+cv::Point acme::Utils::GetBoundingBoxCenter(const cv::Rect &bbox) {
+    int x_center = bbox.width / 2 + bbox.x;
+    int y_center = bbox.height / 2 + bbox.y;
+    return cv::Point(x_center, y_center);
+}
+
+acme::Pose acme::Utils::GetPoseFromPixel(cv::Rect bounding_box, double calib_factor) {
+    // height of object in pixels
+    double height = bounding_box.height;
+    // calibrated distance using focal length and calib factor
+    double calib_distance = calib_factor/ height;
+    // get centre of bbox
+    cv::Point centre = acme::Utils::GetBoundingBoxCenter(bounding_box);
+
+
+    return acme::Pose(calib_distance, centre.x, centre.y);
 }
