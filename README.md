@@ -1,7 +1,7 @@
 # 808x-midterm-project
 
 ![CICD Workflow status](https://github.com/KshitijKarnawat/808x-midterm-project/actions/workflows/main.yml/badge.svg)
-[![codecov](https://codecov.io/gh/KshitijKarnawat/808x-midterm-project/branch/main/graph/badge.svg)](https://codecov.io/gh/KshitijKarnawat/808x-midterm-project)
+[![codecov](https://codecov.io/gh/KshitijKarnawat/808x-midterm-project/branch/devel/graph/badge.svg)](https://codecov.io/gh/KshitijKarnawat/808x-midterm-project)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Project Overview
@@ -36,17 +36,16 @@ License under MIT License.
 - Cpplint
 - CppCheck
 
-## Installation
-
-### [Intalling OpenCV](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html)
+## Dependencies Installation
 
 ```sh
-sudo apt-get install libopencv-dev
+sudo chmod +x requirements.sh
+./requirements.sh
 ```
 
 ## UML Diagrams
 
-![UML Diagram](UML_Diagrams/Revised/UML_Class_Diagram.png)
+![UML Diagram](UML_Diagrams/Final/UML_Diagram.png)
 
 ## Quad Chart
 
@@ -56,16 +55,33 @@ sudo apt-get install libopencv-dev
 
 ## [Planning Sheet](https://docs.google.com/document/d/1iMmyf-nXXenmKZDXkSh4wu5QEsInimkXTg0Oqb2PvHU/edit?usp=sharing)
 
-## API and other developer documentation
+## Building and Running
+
+### Build
+
+```sh
+# Clone the repository
+git clone
+
+# Create a build directory
+mkdir build && cd build
+cmake ..
+make
+
+# To generate documentation
+cd ..
+cmake --build build/ --target docs
+```
 
 ### Run
 
 ```sh
 # Running the application
-./build/app/shell-app
+cd build/
+./app/tracker
 
-# Building doxygen documentation
-cmake --build build/ --target docs
+# Press 'esc' to exit the application
+
 ```
 
 ### Test
@@ -79,14 +95,42 @@ cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
 cmake --build build/ --clean-first --target all test_coverage
 ```
 
-### Demo
+## Results
+
+### Human Detection and Tracking
+
+![Multiple Detections](./etc/result1.png)
+
+### Overlapping Detections
+
+![Overlapping Detections](./etc/result2.png)
+
+### Occluded Detections
+
+![Occluded Detections](./etc/result3.png)
 
 ## Known Issues
+
+- Gtk-Message: 05:12:10.167: Failed to load module "canberra-gtk-module"
+<!-- - For CodeCov to get 100% coverage, we need to atleast one successful detection as seen below. Getting this on the CodeCov badge is not possible as the server does not detect from camera.
+![LCOV](./etc/lcov.png) -->
+
 
 ## Other development Documets
 
 - [OpenCV Documentation](https://opencv.org/)
+- [Google Test Suite - 1](https://chromium.googlesource.com/external/github.com/google/googletest/+/refs/heads/v1.8.x/README.md)
+- [Google Test Suite - 2](http://google.github.io/googletest/)
 
 ## Videos
+
 - [Proposal](https://www.youtube.com/watch?v=stZ0M5cbaZc)
 - [Phase 1 Update](https://youtu.be/rU7ts5qoDmg)
+- [Phase 2 Update](https://drive.google.com/file/d/1CscyLXwQ_gGGZHPRzdFkZS4jBpGGwEHI/view?usp=sharing)
+
+## References
+
+- [OpenCV Documentation](https://docs.opencv.org/master/)
+- [OpenCV Tutorials](https://docs.opencv.org/master/d9/df8/tutorial_root.html)
+- [YoloV7](https://arxiv.org/abs/2207.02696)
+- [YoloV7 Implementation in Python](https://github.com/ultralytics/YOLOv5)

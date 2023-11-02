@@ -14,3 +14,6 @@ build/*
 .cache/*
 todo.md
 cmake-modules/*
+data/*
+opencv/*
+opencv_contrib/*

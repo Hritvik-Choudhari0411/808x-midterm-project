@@ -10,7 +10,38 @@
  *
  */
 
-#include <iostream>
 #include <opencv2/opencv.hpp>
 
-int main() { return 0; }
+#include "../include/tracker.hpp"
+
+int main() {
+  acme::Tracker tracker;
+
+  std::vector<std::string> class_list;
+  class_list.push_back("person");
+
+  cv::VideoCapture cap(0);
+  cv::Mat frame;
+
+  while (true) {
+    cap.read(frame);
+
+    cv::dnn::Net model;
+    model = cv::dnn::readNet("../model/yolov7-tiny.onnx");
+
+    std::vector<cv::Mat> detections;
+    detections = tracker.DetectNN(frame, model);
+
+    cv::Mat img = tracker.DrawBoxes(frame.clone(), detections, class_list);
+
+    cv::imshow("Output", img);
+    char key = cv::waitKey(1);
+    if (key == 27) {
+      break;
+    }
+  }
+
+  cap.release();
+  cv::destroyAllWindows();
+  return 0;
+}

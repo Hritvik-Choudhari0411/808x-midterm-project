@@ -4,17 +4,21 @@ project(ACME_Vision)
 #
 # OpenCV Setup
 #
-find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
-# target_link_libraries( ${OpenCV_LIBS} )
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake-modules)
+
+find_package(
+  OpenCV REQUIRED 
+)
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 #
 # GoogleTest Setup
 # ref: https://google.github.io/googletest/quickstart-cmake.html
 #
 
-# GoogleTest requires at least C++14
-set(CMAKE_CXX_STANDARD 14)
+# GoogleTest requires at least C++17
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # declares a dependency on GoogleTest which is downloaded from GitHub
@@ -105,6 +109,7 @@ endif()
 #
 add_subdirectory(app)
 add_subdirectory(test)
+add_subdirectory(include)
 
 # create a target to build documentation
 doxygen_add_docs(docs           # target name
@@ -125,13 +130,18 @@ if(WANT_COVERAGE)
       "app/main.cpp"     # Unit test does not run app, so don't analyze it
       "*gtest*"          # Don't analyze googleTest code
       "/usr/include/*"   # Don't analyze system headers
+      "opencv/*"         # Don't analyze OpenCV headers
+      "opencv_contrib/*" # Don't analyze OpenCV headers
+      "*core*"           # Don't analyze OpenCV headers
+      "/usr/local/include/*" # Don't analyze system headers
+      "include/*"
     )
 
   # code coverage for the app (shell-app):
   # Use gcovr insetad of lcov if you want to see branch coverage as well
   setup_target_for_coverage_gcovr_html ( # use gcovr to generate coverage report
     NAME app_coverage          # target name
-    EXECUTABLE shell-app       # what to run insdie the build directory?
+    EXECUTABLE tracker       # what to run insdie the build directory?
     EXCLUDE
     "test/test.cpp"    # App does not run unit test, so don't analyze it
     "test/main.cpp"    # App does not run unit test, so don't analyze it

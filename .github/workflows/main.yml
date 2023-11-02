@@ -43,8 +43,9 @@ jobs:
           sudo apt update
           sudo apt install -y software-properties-common
           sudo apt install -y doxygen lcov gcovr
-          sudo apt-get install -y libopencv-dev
-          
+          sudo chmod +x requirements.sh
+          ./requirements.sh
+                    
       # Build, run unit test, and generate coverage report
       - name: Configure CMake flags and build exectables
         run: |
