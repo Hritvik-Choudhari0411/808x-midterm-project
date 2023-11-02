@@ -1,0 +1,6 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,60,57"/>
+<area shape="rect" id="node2" href="$classacme_1_1Tracker.html#a80b57c7094258c5a3556147784b59f6b" title="Detect the humans in the frame." alt="" coords="113,5,296,32"/>
+<area shape="rect" id="node3" href="$classacme_1_1Tracker.html#aae272b19706270f6ef026603c2cd0ae2" title="Draw the bounding boxes on the frame." alt="" coords="108,56,301,83"/>
+<area shape="rect" id="node4" href="$classacme_1_1Tracker.html#a221cfff8931197cd9b8d54b03d0ab4a6" title="Display the labels on the frame." alt="" coords="349,56,560,83"/>
+</map>
